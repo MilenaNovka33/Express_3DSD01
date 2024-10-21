@@ -1,17 +1,17 @@
 const express = require("express");
 const app = express();
 
-const PORT = 3331;
+const PORT = 3456;
 
-// Criação das rotas
+// Criação das rotas - Utilizar o middleware
 
-app.use(express.static(__dirname + "public"));
+app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/src/views/index.html");
 });
 
-app.get("/", function (req, res) {
+app.get("/sobre", function (req, res) {
   res.sendFile(__dirname + "/src/views/about.html");
 });
 
